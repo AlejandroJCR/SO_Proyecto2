@@ -8,6 +8,6 @@ public class ProyectoSO2 {
     public static void main(String[] args) {
         arena = new BattleArena();
         admin = new Administrator(arena);
-        cpu = new CPU(arena);
+        cpu = new CPU(arena, 4);
     }
 }

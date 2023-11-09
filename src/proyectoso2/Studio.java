@@ -11,4 +11,12 @@ public class Studio {
         p3 = new Queue<>();
         reinforcement = new Queue<>();
     }
+    
+    public void addToP1(Character fighter){
+        p1.enqueue(fighter);
+    }
+    
+    public void addToReinforcement(Character fighter){
+        p1.enqueue(fighter);
+    }
 }

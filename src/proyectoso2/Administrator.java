@@ -2,13 +2,10 @@ package proyectoso2;
 
 public class Administrator extends Thread{
     BattleArena arena;
-    Studio studio1, studio2;
     int turn = 0;
     
     public Administrator(BattleArena arena){
         this.arena = arena;
-        studio1 = new Studio("Nintendo");
-        studio2 = new Studio("Capcom");
     }
     
     @Override
