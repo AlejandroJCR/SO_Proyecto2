@@ -37,6 +37,5 @@ public class Character {
         checkQuality(70); // Hit Points
         checkQuality(50); // Strenght
         checkQuality(40); // Agility
-        
     }
 }

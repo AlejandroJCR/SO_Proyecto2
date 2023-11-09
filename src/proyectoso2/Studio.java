@@ -2,6 +2,7 @@ package proyectoso2;
 
 public class Studio {
     String name;
+    int winners;
     Queue<Character> p1, p2, p3, reinforcement;
     
     public Studio(String name){
