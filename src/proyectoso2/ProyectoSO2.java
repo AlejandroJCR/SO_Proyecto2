@@ -1,9 +1,13 @@
 package proyectoso2;
 
 public class ProyectoSO2 {
-
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+    static BattleArena arena;
+    static Administrator admin;
+    static CPU cpu;
     
+    public static void main(String[] args) {
+        arena = new BattleArena();
+        admin = new Administrator(arena);
+        cpu = new CPU(arena);
+    }
 }

@@ -1,11 +1,11 @@
 package proyectoso2;
 
 public class CPU extends Thread{
-    
+    BattleArena arena;
     enum Result {WINNER, TIE, NULL}
     
-    public CPU() {
-
+    public CPU(BattleArena arena) {
+        this.arena = arena;
     }
     
     public void processWinner(){
