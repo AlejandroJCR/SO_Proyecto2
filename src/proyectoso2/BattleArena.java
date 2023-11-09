@@ -6,6 +6,7 @@ public class BattleArena {
     Semaphore semArena;
     Character fighter1, fighter2;
     Studio studio1, studio2;
+    LinkedList<Character> winners; 
     
     public BattleArena(){
         semArena =  new Semaphore(1);
@@ -23,6 +24,10 @@ public class BattleArena {
         fighters[0] = fighter1;
         fighters[1] = fighter2;
         return fighters;
+    }
+    
+    public void addWinner(Character winner){
+        winners.append(winner);
     }
     
     public void waitSemaphore(){
