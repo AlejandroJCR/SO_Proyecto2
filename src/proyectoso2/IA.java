@@ -40,17 +40,17 @@ public class IA extends Thread{
     public void run() {
         try {
             while (!Thread.currentThread().isInterrupted()) {
-                
-                // Wait for result
-                Thread.sleep(10*1000/velocity);
-                
                 arena.waitSemaphore();
-                
                 Character[] fighters = arena.getFighters();
                 if(fighters[0] == null || fighters[1] == null){
                     arena.releaseSemaphore();
                     continue;
                 }
+                System.out.println("ia");
+                // Wait for result
+                Thread.sleep(10*1000/velocity);
+                
+                
                 
                 // Process result
                 int random = (int)(Math.random() * 100);

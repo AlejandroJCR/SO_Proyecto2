@@ -12,7 +12,21 @@ public class Administrator extends Thread{
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
             arena.waitSemaphore();
+            Character[] fighters = arena.getFighters();
+            if(fighters[0] != null || fighters[1] != null){
+                arena.releaseSemaphore();
+                continue;
+            }
+                          
+            System.out.println("admin");
             turn++;
+            
+            // Set fighters
+            arena.fighter1 = arena.chooseFighter(arena.studio1);
+            arena.fighter2 = arena.chooseFighter(arena.studio2);
+            
+            System.out.println(arena.fighter1.name);
+            System.out.println(arena.fighter2.name);
             
             arena.studio1.updateCounter();
             arena.studio2.updateCounter();
