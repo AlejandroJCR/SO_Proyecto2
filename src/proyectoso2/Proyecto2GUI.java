@@ -1,5 +1,6 @@
 package proyectoso2;
 
+
 public class Proyecto2GUI extends javax.swing.JFrame {
     static BattleArena arena;
     static Administrator admin;

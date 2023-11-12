@@ -1,0 +1,60 @@
+Link
+HP: 100
+Strength: 90
+Agility: 85
+Abilities: Swordsmanship, Master Archer
+
+Zelda
+HP: 90
+Strength: 70
+Agility: 80
+Abilities: Magic Spells, Triforce Power
+
+Ganondorf
+HP: 110
+Strength: 95
+Agility: 75
+Abilities: Dark Magic, Triforce of Power, Shape-shifting
+
+Impa
+HP: 95
+Strength: 80
+Agility: 90
+Abilities: Ninja Techniques, Stealth
+
+Midna
+HP: 85
+Strength: 75
+Agility: 95
+Abilities: Twilight Magic, Teleportation
+
+Daruk
+HP: 120
+Strength: 100
+Agility: 60
+Abilities: Goron Protection
+
+Urbosa
+HP: 105
+Strength: 85
+Agility: 70
+Abilities: Thunderstrike, Gerudo Fury, Swordsmanship
+
+Mipha
+HP: 95
+Strength: 65
+Agility: 75
+Abilities: Healing Grace
+
+Revali
+HP: 90
+Strength: 70
+Agility: 95
+Abilities: Precision Archery, Wind Mastery
+
+Sidon
+HP: 100
+Strength: 75
+Agility: 80
+Abilities: Zora Aquatic Prowess
+

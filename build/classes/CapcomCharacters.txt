@@ -1,0 +1,60 @@
+Ryu
+HP: 100
+Strength: 90
+Agility: 85
+Abilities: Shotokan Karate, Hadoken, Shoryuken
+
+Chun-Li
+HP: 95
+Strength: 80
+Agility: 95
+Abilities: Chinese martial arts, Spinning Bird Kick
+
+Guile
+HP: 110
+Strength: 85
+Agility: 80
+Abilities: Special Forces Training, Sonic Boom
+
+Dhalsim
+HP: 90
+Strength: 70
+Agility: 85
+Abilities: Yoga Fire, Yoga Teleport, Stretching Limbs
+
+Blanka
+HP: 105
+Strength: 95
+Agility: 85
+Abilities: Electric Thunder, Rolling Attack
+
+Zangief
+HP: 115
+Strength: 100
+Agility: 70
+Abilities: Wrestling, Spinning Piledriver, Iron Cyclone
+
+Cammy
+HP: 95
+Strength: 85
+Agility: 90
+Abilities: Special Forces Training, Spiral Arrow
+
+Vega
+HP: 90
+Strength: 75
+Agility: 95
+Abilities: Claw Attacks
+
+M. Bison
+HP: 110
+Strength: 95
+Agility: 85
+Abilities: Scissor Kick, Psycho Crusher
+
+Sakura
+HP: 95
+Strength: 80
+Agility: 90
+Abilities: Hadoken, Shunpukyaku
+

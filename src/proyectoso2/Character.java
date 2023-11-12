@@ -9,8 +9,15 @@ public class Character {
     String name;
     int qualityAttrs = 0;
     int hitPoints, strength, agility;
+    String abilities;
     
-    public Character(){
+    public Character(String name, int hitPoints, int stregth, int agility, String abilities){
+        this.name = name;
+        this.hitPoints = hitPoints;
+        this.strength = stregth;
+        this.agility = agility;
+        this.abilities = abilities;
+        
         counter = 0;
         getInitialPriority();
     }
