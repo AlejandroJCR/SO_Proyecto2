@@ -1,5 +1,5 @@
 package proyectoso2;
-
+        
 public class Character {
     String PID;
     int priority;
@@ -17,7 +17,6 @@ public class Character {
         this.strength = stregth;
         this.agility = agility;
         this.abilities = abilities;
-        
         counter = 0;
         getInitialPriority();
     }
@@ -29,14 +28,16 @@ public class Character {
         }   
     }
     
-    public void updateCounter(){
+    public boolean updateCounter(){
         counter++;
         if(counter == 8){
             if(priority != 1){
                 counter = 0;
                 priority -= 1;
+                return true;
             }
         }
+        return false;
     }
     
     public void getInitialPriority(){
@@ -44,5 +45,11 @@ public class Character {
         checkQuality(70); // Hit Points
         checkQuality(50); // Strenght
         checkQuality(40); // Agility
+        
+        switch(qualityAttrs){
+            case 0 -> priority = 3;
+            case 1, 2 -> priority = 2;
+            case 3 -> priority = 1;                     
+        }
     }
 }

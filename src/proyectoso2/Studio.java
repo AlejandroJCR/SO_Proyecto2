@@ -8,8 +8,7 @@ import java.util.Scanner;
 public class Studio {
     String name;
     int winners;
-    Queue<Character> p1, p2, p3, reinforcement;
-    LinkedList<Character> characters; 
+    Queue<Character> p1, p2, p3, reinforcement, characters;
     
     public Studio(String name){
         this.name = name;
@@ -17,7 +16,7 @@ public class Studio {
         p2 = new Queue<>();
         p3 = new Queue<>();
         reinforcement = new Queue<>();
-        characters = new LinkedList();
+        characters = new Queue<>();
         loadCharacters();
     }
     
@@ -30,7 +29,7 @@ public class Studio {
            
            for(int i=0; i < 10; i++){
                 String line = myReader.nextLine();
-                String name = line;
+                String nameC = line;
                 line = myReader.nextLine();
                 int hp = Integer. parseInt(line.split(": ")[1]);
                 line = myReader.nextLine();
@@ -41,9 +40,8 @@ public class Studio {
                 String abilities = line.split(": ")[1];
                 line = myReader.nextLine();
                 
-                Character newCharacter = new Character(name, hp, strength, agility, abilities);
-                characters.append(newCharacter);
-                
+                Character newCharacter = new Character(nameC, hp, strength, agility, abilities);
+                System.out.println(nameC + newCharacter.qualityAttrs);
                 switch(newCharacter.qualityAttrs){
                     case 0 -> p3.enqueue(newCharacter);
                     case 1, 2 -> p2.enqueue(newCharacter);
@@ -62,5 +60,38 @@ public class Studio {
     
     public void addToReinforcement(Character fighter){
         p1.enqueue(fighter);
+    }
+    
+    public void addNewCharacterToQueue(){
+        Character c = characters.dequeue();
+        switch(c.qualityAttrs){
+            case 0 -> p3.enqueue(c);
+            case 1, 2 -> p2.enqueue(c);
+            case 3 -> p1.enqueue(c);                     
+        }
+    }
+    
+    public void updateCounter(){
+        Node<Character> node = p2.front;
+        while(node != null){
+            Character c = node.data;
+            boolean movePriority = c.updateCounter();
+            if(movePriority){
+                p2.remove(c);
+                p1.enqueue(c);
+            }
+            node = node.next;
+        }
+        
+        node = p3.front;
+        while(node != null){
+            Character c = node.data;
+            boolean movePriority = c.updateCounter();
+            if(movePriority){
+                p3.remove(c);
+                p2.enqueue(c);
+            }
+            node = node.next;
+        }
     }
 }
