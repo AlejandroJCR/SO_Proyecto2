@@ -1,5 +1,6 @@
 package proyectoso2;
 
+
 public class Proyecto2GUI extends javax.swing.JFrame {
     static BattleArena arena;
     static Administrator admin;
@@ -12,10 +13,130 @@ public class Proyecto2GUI extends javax.swing.JFrame {
     }
     
     private void init(){
-        arena = new BattleArena();
+        arena = new BattleArena(this);
         admin = new Administrator(arena);
+        cpu = new IA(arena, 3);
+        updateP1QueueS1();
+        updateP2QueueS1();
+        updateP3QueueS1();
+        updateP1QueueS2();
+        updateP2QueueS2();
+        updateP3QueueS2();
     }
-   
+    
+    void updateP1QueueS1(){
+        Studio studio1 = arena.studio1;
+        Queue<Character> p1 = studio1.p1;
+        String text = "";
+        
+        Node<Character> node = p1.front;
+        while(node != null){
+            text += node.data.name + ", ";
+            node = node.next;
+        }
+        
+        p1Area.setText(text);
+    }
+    
+    void updateP2QueueS1(){
+        Studio studio1 = arena.studio1;
+        Queue<Character> p2 = studio1.p2;
+        String text = "";
+        
+        Node<Character> node = p2.front;
+        while(node != null){
+            text += node.data.name + ", ";
+            node = node.next;
+        }
+        
+        p2Area.setText(text);
+    }
+    
+    void updateP3QueueS1(){
+        Studio studio1 = arena.studio1;
+        Queue<Character> p3 = studio1.p3;
+        String text = "";
+        
+        Node<Character> node = p3.front;
+        while(node != null){
+            text += node.data.name + ", ";
+            node = node.next;
+        }
+        
+        p3Area.setText(text);
+    }
+    
+    void updateP1QueueS2(){
+        Studio studio = arena.studio2;
+        Queue<Character> p1 = studio.p1;
+        String text = "";
+        
+        Node<Character> node = p1.front;
+        while(node != null){
+            text += node.data.name + ", ";
+            node = node.next;
+        }
+        
+        p1Area2.setText(text);
+    }
+    
+    void updateP2QueueS2(){
+        Studio studio = arena.studio2;
+        Queue<Character> p2 = studio.p2;
+        String text = "";
+        
+        Node<Character> node = p2.front;
+        while(node != null){
+            text += node.data.name + ", ";
+            node = node.next;
+        }
+        
+        p2Area2.setText(text);
+    }
+    
+    void updateP3QueueS2(){
+        Studio studio = arena.studio2;
+        Queue<Character> p3 = studio.p3;
+        String text = "";
+        
+        Node<Character> node = p3.front;
+        while(node != null){
+            text += node.data.name + ", ";
+            node = node.next;
+        }
+        
+        p3Area2.setText(text);
+    }
+    
+    void updateRefQueueS1(){
+        Studio studio = arena.studio1;
+        Queue<Character> ref = studio.reinforcement;
+        String text = "";
+        
+        Node<Character> node = ref.front;
+        while(node != null){
+            text += node.data.name + ", ";
+            node = node.next;
+        }
+        
+        refArea1.setText(text);
+    }
+    
+    void updateRefQueueS2(){
+        Studio studio = arena.studio2;
+        Queue<Character> ref = studio.reinforcement;
+        String text = "";
+        
+        Node<Character> node = ref.front;
+        while(node != null){
+            text += node.data.name + ", ";
+            node = node.next;
+        }
+        
+        refArea2.setText(text);
+    }
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,10 +157,20 @@ public class Proyecto2GUI extends javax.swing.JFrame {
         capcomGamesWon = new javax.swing.JLabel();
         capcomText = new javax.swing.JLabel();
         arenaText = new javax.swing.JLabel();
-        colasNintendo = new javax.swing.JPanel();
-        colas1Text = new javax.swing.JLabel();
         drive3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        prioridad1C = new javax.swing.JLabel();
+        prioridad2C = new javax.swing.JLabel();
+        prioridad3C = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        p1Area = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        p2Area = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        p3Area = new javax.swing.JTextArea();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        refArea1 = new javax.swing.JTextArea();
+        prioridad3C2 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
         IAPanel = new javax.swing.JPanel();
@@ -49,6 +180,20 @@ public class Proyecto2GUI extends javax.swing.JFrame {
         velocityText = new javax.swing.JLabel();
         minusText = new javax.swing.JButton();
         start = new javax.swing.JButton();
+        drive4 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        prioridad1C1 = new javax.swing.JLabel();
+        prioridad2C1 = new javax.swing.JLabel();
+        prioridad3C1 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        p1Area2 = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        p2Area2 = new javax.swing.JTextArea();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        p3Area2 = new javax.swing.JTextArea();
+        prioridad3C3 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        refArea2 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -137,32 +282,46 @@ public class Proyecto2GUI extends javax.swing.JFrame {
         arenaText.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         arenaText.setText("Arena");
 
-        colasNintendo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        colas1Text.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        colas1Text.setText("Colas");
-
-        javax.swing.GroupLayout colasNintendoLayout = new javax.swing.GroupLayout(colasNintendo);
-        colasNintendo.setLayout(colasNintendoLayout);
-        colasNintendoLayout.setHorizontalGroup(
-            colasNintendoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colasNintendoLayout.createSequentialGroup()
-                .addContainerGap(130, Short.MAX_VALUE)
-                .addComponent(colas1Text)
-                .addGap(124, 124, 124))
-        );
-        colasNintendoLayout.setVerticalGroup(
-            colasNintendoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(colasNintendoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(colas1Text)
-                .addContainerGap(236, Short.MAX_VALUE))
-        );
-
         drive3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Colas");
+
+        prioridad1C.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        prioridad1C.setText("--- Prioridad 1: ");
+
+        prioridad2C.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        prioridad2C.setText("--- Prioridad 2: ");
+
+        prioridad3C.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        prioridad3C.setText("--- Prioridad 3: ");
+
+        p1Area.setEditable(false);
+        p1Area.setColumns(20);
+        p1Area.setLineWrap(true);
+        p1Area.setRows(5);
+        jScrollPane1.setViewportView(p1Area);
+
+        p2Area.setEditable(false);
+        p2Area.setColumns(20);
+        p2Area.setLineWrap(true);
+        p2Area.setRows(5);
+        jScrollPane2.setViewportView(p2Area);
+
+        p3Area.setEditable(false);
+        p3Area.setColumns(20);
+        p3Area.setLineWrap(true);
+        p3Area.setRows(5);
+        jScrollPane4.setViewportView(p3Area);
+
+        refArea1.setEditable(false);
+        refArea1.setColumns(20);
+        refArea1.setLineWrap(true);
+        refArea1.setRows(5);
+        jScrollPane8.setViewportView(refArea1);
+
+        prioridad3C2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        prioridad3C2.setText("--- Refuerzo: ");
 
         javax.swing.GroupLayout drive3Layout = new javax.swing.GroupLayout(drive3);
         drive3.setLayout(drive3Layout);
@@ -172,13 +331,41 @@ public class Proyecto2GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(127, 127, 127))
+            .addGroup(drive3Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(drive3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prioridad3C)
+                    .addComponent(prioridad2C)
+                    .addComponent(prioridad1C)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prioridad3C2))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         drive3Layout.setVerticalGroup(
             drive3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(drive3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addComponent(prioridad1C)
+                .addGap(3, 3, 3)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(prioridad2C)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(prioridad3C)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(prioridad3C2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jLabel50.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -246,67 +433,157 @@ public class Proyecto2GUI extends javax.swing.JFrame {
             }
         });
 
+        drive4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setText("Colas");
+
+        prioridad1C1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        prioridad1C1.setText("--- Prioridad 1: ");
+
+        prioridad2C1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        prioridad2C1.setText("--- Prioridad 2: ");
+
+        prioridad3C1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        prioridad3C1.setText("--- Prioridad 3: ");
+
+        p1Area2.setEditable(false);
+        p1Area2.setColumns(20);
+        p1Area2.setLineWrap(true);
+        p1Area2.setRows(5);
+        jScrollPane5.setViewportView(p1Area2);
+
+        p2Area2.setEditable(false);
+        p2Area2.setColumns(20);
+        p2Area2.setLineWrap(true);
+        p2Area2.setRows(5);
+        jScrollPane6.setViewportView(p2Area2);
+
+        p3Area2.setEditable(false);
+        p3Area2.setColumns(20);
+        p3Area2.setLineWrap(true);
+        p3Area2.setRows(5);
+        jScrollPane7.setViewportView(p3Area2);
+
+        prioridad3C3.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        prioridad3C3.setText("--- Refuerzo: ");
+
+        refArea2.setEditable(false);
+        refArea2.setColumns(20);
+        refArea2.setLineWrap(true);
+        refArea2.setRows(5);
+        jScrollPane9.setViewportView(refArea2);
+
+        javax.swing.GroupLayout drive4Layout = new javax.swing.GroupLayout(drive4);
+        drive4.setLayout(drive4Layout);
+        drive4Layout.setHorizontalGroup(
+            drive4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, drive4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(127, 127, 127))
+            .addGroup(drive4Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(drive4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prioridad3C1)
+                    .addComponent(prioridad2C1)
+                    .addComponent(prioridad1C1)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prioridad3C3)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        drive4Layout.setVerticalGroup(
+            drive4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(drive4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(11, 11, 11)
+                .addComponent(prioridad1C1)
+                .addGap(3, 3, 3)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(prioridad2C1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(prioridad3C1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(prioridad3C3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(54, 54, 54)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(IAPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(arenaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(drive3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(108, 108, 108)
-                                    .addComponent(capcomText)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(12, 12, 12)
-                                    .addComponent(colasNintendo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(111, 111, 111)
-                                    .addComponent(jLabel50)))
-                            .addGap(244, 244, 244))))
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(309, 309, 309)
-                            .addComponent(arenaText))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(225, 225, 225)
-                            .addComponent(jLabel51)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(267, 267, 267)
-                .addComponent(start)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(309, 309, 309)
+                        .addComponent(arenaText))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(225, 225, 225)
+                        .addComponent(jLabel51)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(IAPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(arenaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(start)))
+                .addContainerGap(63, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(drive3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jLabel50)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(drive4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(capcomText)
+                        .addGap(184, 184, 184))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(capcomText)
-                    .addComponent(jLabel50))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(colasNintendo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(drive3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(21, 21, 21)
-                .addComponent(arenaText)
+                    .addComponent(jLabel50)
+                    .addComponent(capcomText))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(drive3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(drive4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(arenaText)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(arenaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel51)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(IAPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(start)
-                .addContainerGap(384, Short.MAX_VALUE))
+                .addComponent(start, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jScrollPane3.setViewportView(jPanel1);
@@ -315,13 +592,16 @@ public class Proyecto2GUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 971, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -337,6 +617,8 @@ public class Proyecto2GUI extends javax.swing.JFrame {
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
         // TODO add your handling code here:
+        admin.start();
+        cpu.start();
     }//GEN-LAST:event_startActionPerformed
 
     public static void main(String args[]) {
@@ -385,19 +667,43 @@ public class Proyecto2GUI extends javax.swing.JFrame {
     private javax.swing.JPanel capcomArena;
     private javax.swing.JLabel capcomGamesWon;
     private javax.swing.JLabel capcomText;
-    private javax.swing.JLabel colas1Text;
-    private javax.swing.JPanel colasNintendo;
     private javax.swing.JPanel drive3;
+    private javax.swing.JPanel drive4;
     private javax.swing.JFileChooser fileChooser;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton minusText;
     private javax.swing.JPanel nintendoArena;
     private javax.swing.JLabel nintendoGamesWon;
+    private javax.swing.JTextArea p1Area;
+    private javax.swing.JTextArea p1Area2;
+    private javax.swing.JTextArea p2Area;
+    private javax.swing.JTextArea p2Area2;
+    private javax.swing.JTextArea p3Area;
+    private javax.swing.JTextArea p3Area2;
     private javax.swing.JButton plusVelocity;
+    private javax.swing.JLabel prioridad1C;
+    private javax.swing.JLabel prioridad1C1;
+    private javax.swing.JLabel prioridad2C;
+    private javax.swing.JLabel prioridad2C1;
+    private javax.swing.JLabel prioridad3C;
+    private javax.swing.JLabel prioridad3C1;
+    private javax.swing.JLabel prioridad3C2;
+    private javax.swing.JLabel prioridad3C3;
+    private javax.swing.JTextArea refArea1;
+    private javax.swing.JTextArea refArea2;
     private javax.swing.JButton start;
     private javax.swing.JLabel statusText;
     private javax.swing.JLabel velocity;

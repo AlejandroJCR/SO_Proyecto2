@@ -22,35 +22,40 @@ public class IA extends Thread{
         } else {
             arena.studio2.winners++;
         }
+        System.out.println("WINNER");
     }
     
     public void processTie(Character fighter1, Character fighter2){
         // Put both caracters in their priority 1 queue
         arena.studio1.addToP1(fighter1);
         arena.studio2.addToP1(fighter2);
+        arena.GUI.updateP1QueueS1();
+        arena.GUI.updateP1QueueS2();
+        System.out.println("TIE");
     }
     
     public void processNull(Character fighter1, Character fighter2){
         // Put both caracters in their reenforcement queue
-        arena.studio1.addToP1(fighter1);
-        arena.studio2.addToP1(fighter2);
+        arena.studio1.addToReinforcement(fighter1);
+        arena.studio2.addToReinforcement(fighter2);
+        arena.GUI.updateRefQueueS1();
+        arena.GUI.updateRefQueueS2();
+        System.out.println("NULL");
     }
     
     @Override
     public void run() {
         try {
             while (!Thread.currentThread().isInterrupted()) {
-                
-                // Wait for result
-                Thread.sleep(10*1000/velocity);
-                
                 arena.waitSemaphore();
-                
                 Character[] fighters = arena.getFighters();
                 if(fighters[0] == null || fighters[1] == null){
                     arena.releaseSemaphore();
                     continue;
                 }
+                System.out.println("ia");
+                // Wait for result
+                Thread.sleep(10*1000/velocity);
                 
                 // Process result
                 int random = (int)(Math.random() * 100);
@@ -61,6 +66,9 @@ public class IA extends Thread{
                 } else {
                     processNull(fighters[0], fighters[1]);
                 }     
+                
+                arena.fighter1 = null;
+                arena.fighter2 = null;
                 
                 arena.releaseSemaphore();
             }   
