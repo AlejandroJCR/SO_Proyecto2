@@ -108,6 +108,34 @@ public class Proyecto2GUI extends javax.swing.JFrame {
         p3Area2.setText(text);
     }
     
+    void updateRefQueueS1(){
+        Studio studio = arena.studio1;
+        Queue<Character> ref = studio.reinforcement;
+        String text = "";
+        
+        Node<Character> node = ref.front;
+        while(node != null){
+            text += node.data.name + ", ";
+            node = node.next;
+        }
+        
+        refArea1.setText(text);
+    }
+    
+    void updateRefQueueS2(){
+        Studio studio = arena.studio2;
+        Queue<Character> ref = studio.reinforcement;
+        String text = "";
+        
+        Node<Character> node = ref.front;
+        while(node != null){
+            text += node.data.name + ", ";
+            node = node.next;
+        }
+        
+        refArea2.setText(text);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -140,6 +168,9 @@ public class Proyecto2GUI extends javax.swing.JFrame {
         p2Area = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         p3Area = new javax.swing.JTextArea();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        refArea1 = new javax.swing.JTextArea();
+        prioridad3C2 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
         IAPanel = new javax.swing.JPanel();
@@ -160,6 +191,9 @@ public class Proyecto2GUI extends javax.swing.JFrame {
         p2Area2 = new javax.swing.JTextArea();
         jScrollPane7 = new javax.swing.JScrollPane();
         p3Area2 = new javax.swing.JTextArea();
+        prioridad3C3 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        refArea2 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -280,6 +314,15 @@ public class Proyecto2GUI extends javax.swing.JFrame {
         p3Area.setRows(5);
         jScrollPane4.setViewportView(p3Area);
 
+        refArea1.setEditable(false);
+        refArea1.setColumns(20);
+        refArea1.setLineWrap(true);
+        refArea1.setRows(5);
+        jScrollPane8.setViewportView(refArea1);
+
+        prioridad3C2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        prioridad3C2.setText("--- Refuerzo: ");
+
         javax.swing.GroupLayout drive3Layout = new javax.swing.GroupLayout(drive3);
         drive3.setLayout(drive3Layout);
         drive3Layout.setHorizontalGroup(
@@ -296,7 +339,9 @@ public class Proyecto2GUI extends javax.swing.JFrame {
                     .addComponent(prioridad2C)
                     .addComponent(prioridad1C)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prioridad3C2))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         drive3Layout.setVerticalGroup(
@@ -316,6 +361,10 @@ public class Proyecto2GUI extends javax.swing.JFrame {
                 .addComponent(prioridad3C)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(prioridad3C2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -416,6 +465,15 @@ public class Proyecto2GUI extends javax.swing.JFrame {
         p3Area2.setRows(5);
         jScrollPane7.setViewportView(p3Area2);
 
+        prioridad3C3.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        prioridad3C3.setText("--- Refuerzo: ");
+
+        refArea2.setEditable(false);
+        refArea2.setColumns(20);
+        refArea2.setLineWrap(true);
+        refArea2.setRows(5);
+        jScrollPane9.setViewportView(refArea2);
+
         javax.swing.GroupLayout drive4Layout = new javax.swing.GroupLayout(drive4);
         drive4.setLayout(drive4Layout);
         drive4Layout.setHorizontalGroup(
@@ -432,7 +490,9 @@ public class Proyecto2GUI extends javax.swing.JFrame {
                     .addComponent(prioridad2C1)
                     .addComponent(prioridad1C1)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prioridad3C3)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         drive4Layout.setVerticalGroup(
@@ -452,6 +512,10 @@ public class Proyecto2GUI extends javax.swing.JFrame {
                 .addComponent(prioridad3C1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(prioridad3C3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -470,53 +534,56 @@ public class Proyecto2GUI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGap(54, 54, 54)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(IAPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(arenaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(36, 36, 36)
-                                    .addComponent(drive3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(126, 126, 126)
-                                    .addComponent(jLabel50)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(drive4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(capcomText)
-                                    .addGap(104, 104, 104)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(IAPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(arenaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(267, 267, 267)
                         .addComponent(start)))
                 .addContainerGap(63, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(drive3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jLabel50)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(drive4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(capcomText)
+                        .addGap(184, 184, 184))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(capcomText, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel50, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel50)
+                    .addComponent(capcomText))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(drive3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(drive4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(arenaText)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(arenaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel51)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(IAPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(start, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(384, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jScrollPane3.setViewportView(jPanel1);
@@ -525,12 +592,15 @@ public class Proyecto2GUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 971, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -612,6 +682,8 @@ public class Proyecto2GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton minusText;
     private javax.swing.JPanel nintendoArena;
     private javax.swing.JLabel nintendoGamesWon;
@@ -628,6 +700,10 @@ public class Proyecto2GUI extends javax.swing.JFrame {
     private javax.swing.JLabel prioridad2C1;
     private javax.swing.JLabel prioridad3C;
     private javax.swing.JLabel prioridad3C1;
+    private javax.swing.JLabel prioridad3C2;
+    private javax.swing.JLabel prioridad3C3;
+    private javax.swing.JTextArea refArea1;
+    private javax.swing.JTextArea refArea2;
     private javax.swing.JButton start;
     private javax.swing.JLabel statusText;
     private javax.swing.JLabel velocity;
