@@ -25,6 +25,9 @@ public class Administrator extends Thread{
             arena.fighter1 = arena.chooseFighter(arena.studio1);
             arena.fighter2 = arena.chooseFighter(arena.studio2);
             
+            arena.GUI.updateArenaS1();
+            arena.GUI.updateArenaS2();
+            
             System.out.println(arena.fighter1.name);
             System.out.println(arena.fighter2.name);
             
