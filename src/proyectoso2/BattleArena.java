@@ -11,8 +11,8 @@ public class BattleArena {
     
     public BattleArena(Proyecto2GUI GUI){
         semArena =  new Semaphore(1);
-        studio1 = new Studio("Nintendo");
-        studio2 = new Studio("Capcom");
+        studio1 = new Studio("Nintendo", GUI);
+        studio2 = new Studio("Capcom", GUI);
         winners = new LinkedList<>();
         this.GUI = GUI;
     }

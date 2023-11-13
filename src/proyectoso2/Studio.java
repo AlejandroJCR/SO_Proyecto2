@@ -9,9 +9,11 @@ public class Studio {
     String name;
     int winners;
     Queue<Character> p1, p2, p3, reinforcement, characters;
+    Proyecto2GUI GUI;
     
-    public Studio(String name){
+    public Studio(String name, Proyecto2GUI GUI){
         this.name = name;
+        this.GUI = GUI;
         p1 = new Queue<>();
         p2 = new Queue<>();
         p3 = new Queue<>();
@@ -41,7 +43,6 @@ public class Studio {
                 line = myReader.nextLine();
                 
                 Character newCharacter = new Character(nameC, hp, strength, agility, abilities);
-                System.out.println(nameC + newCharacter.qualityAttrs);
                 switch(newCharacter.qualityAttrs){
                     case 0 -> p3.enqueue(newCharacter);
                     case 1, 2 -> p2.enqueue(newCharacter);
@@ -59,7 +60,7 @@ public class Studio {
     }
     
     public void addToReinforcement(Character fighter){
-        p1.enqueue(fighter);
+        reinforcement.enqueue(fighter);
     }
     
     public void addNewCharacterToQueue(){
@@ -79,6 +80,16 @@ public class Studio {
             if(movePriority){
                 p2.remove(c);
                 p1.enqueue(c);
+                
+                if(name.equals("Nintendo")){
+                    GUI.updateP1QueueS1();
+                    GUI.updateP2QueueS1();
+                }else{
+                    GUI.updateP1QueueS2();
+                    GUI.updateP2QueueS2();
+                }
+
+                System.out.println("a primera prioridad " + c.name);
             }
             node = node.next;
         }
@@ -90,6 +101,16 @@ public class Studio {
             if(movePriority){
                 p3.remove(c);
                 p2.enqueue(c);
+                
+                if(name.equals("Nintendo")){
+                    GUI.updateP2QueueS1();
+                    GUI.updateP3QueueS1();
+                }else{
+                    GUI.updateP2QueueS2();
+                    GUI.updateP3QueueS2();
+                }
+                    
+                System.out.println("a segunda prioridad " + c.name);
             }
             node = node.next;
         }
