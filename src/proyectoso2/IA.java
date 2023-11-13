@@ -43,10 +43,15 @@ public class IA extends Thread{
         System.out.println("NULL");
     }
     
+    public void setVelocity(int velocity){
+        this.velocity = velocity;
+    }
+    
     @Override
     public void run() {
         try {
             while (!Thread.currentThread().isInterrupted()) {
+                arena.GUI.updateIAStatus("Esperando");
                 arena.waitSemaphore();
                 Character[] fighters = arena.getFighters();
                 if(fighters[0] == null || fighters[1] == null){
@@ -55,8 +60,9 @@ public class IA extends Thread{
                 }
                 System.out.println("ia");
                 // Wait for result
+                arena.GUI.updateIAStatus("Decidiendo");
                 Thread.sleep(10*1000/velocity);
-                
+                arena.GUI.updateIAStatus("Anunciando Resultado");
                 // Process result
                 int random = (int)(Math.random() * 100);
                 if(random <= 40){
