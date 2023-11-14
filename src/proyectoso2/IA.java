@@ -11,17 +11,36 @@ public class IA extends Thread{
         this.velocity = velocity;
     }
     
-    public void processWinner(Character fighter1, Character fighter2){
-        // Choose winner based on its attributes
-        // Store winner in list of winners
-        // Erase loser from simulation
-        Character winner = fighter1;
-        arena.winners.append(winner);
-        if(winner.equals(fighter1)){
-            arena.studio1.winners++;
-        } else {
-            arena.studio2.winners++;
+    public void processWinner(Character f1, Character f2){
+        // Choose who hits first (if they tie, the street fighters characters go first)
+        Character fighting, getHit, aux;
+        if(f1.agility > f2.agility){
+            fighting = f1;
+            getHit = f2;
+        }else{
+            fighting = f2;
+            getHit = f1;
         }
+        while(f1.hitPoints > 0 && f2.hitPoints > 0){
+            getHit.hitPoints -= fighting.strength + (fighting.nAbilities * 5);
+            // Swap fighters positions
+            aux = fighting;
+            fighting = getHit;
+            getHit = aux;
+            System.out.println("es turno de: " + fighting.name);
+        } 
+        
+        arena.winners.append(fighting);
+        if(fighting.name.equals(f1.name)){
+            System.out.println("gano: " + f1.name);
+            arena.studio1.winners++;
+            arena.GUI.updateGamesWonS1(); 
+        }else{
+            System.out.println("gano: " + f2.name);
+            arena.studio2.winners++;
+            arena.GUI.updateGamesWonS2();
+        }
+        
         System.out.println("WINNER");
     }
     
@@ -52,10 +71,8 @@ public class IA extends Thread{
         try {
             while (!Thread.currentThread().isInterrupted()) {
                 arena.GUI.updateIAStatus("Esperando");
-                arena.waitSemaphore();
                 Character[] fighters = arena.getFighters();
                 if(fighters[0] == null || fighters[1] == null){
-                    arena.releaseSemaphore();
                     continue;
                 }
                 System.out.println("ia");
@@ -75,8 +92,6 @@ public class IA extends Thread{
                 
                 arena.fighter1 = null;
                 arena.fighter2 = null;
-                
-                arena.releaseSemaphore();
             }   
         } catch(InterruptedException e){
             //Thread killed

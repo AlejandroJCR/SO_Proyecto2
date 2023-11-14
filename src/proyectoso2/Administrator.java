@@ -11,10 +11,8 @@ public class Administrator extends Thread{
     @Override
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
-            arena.waitSemaphore();
             Character[] fighters = arena.getFighters();
             if(fighters[0] != null || fighters[1] != null){
-                arena.releaseSemaphore();
                 continue;
             }
                           
@@ -42,7 +40,6 @@ public class Administrator extends Thread{
                     arena.studio2.addNewCharacterToQueue();
                 }
             }  */
-            arena.releaseSemaphore();
         }   
     }
 }
