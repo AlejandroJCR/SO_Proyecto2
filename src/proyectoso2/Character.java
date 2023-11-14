@@ -9,6 +9,7 @@ public class Character {
     String name;
     int qualityAttrs = 0;
     int hitPoints, strength, agility;
+    int nAbilities;
     String abilities;
     
     public Character(String name, int hitPoints, int stregth, int agility, String abilities){
@@ -17,6 +18,7 @@ public class Character {
         this.strength = stregth;
         this.agility = agility;
         this.abilities = abilities;
+        this.nAbilities = abilities.split(",").length;
         counter = 0;
         getInitialPriority();
     }
