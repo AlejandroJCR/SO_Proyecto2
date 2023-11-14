@@ -149,6 +149,14 @@ public class Proyecto2GUI extends javax.swing.JFrame {
     void updateIAStatus(String status){
         statusText.setText("Estado Actual: " + status);
     }
+    
+    void updateGamesWonS1(){
+        nintendoGamesWon.setText("Juegos Ganados por Zelda: " + arena.studio1.winners);
+    }
+    
+    void updateGamesWonS2(){
+        capcomGamesWon.setText("Juegos Ganados por Steet Fighter: " + arena.studio1.winners);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -164,8 +172,8 @@ public class Proyecto2GUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         arenaPanel = new javax.swing.JPanel();
         vsText = new javax.swing.JLabel();
-        nintendoGamesWon = new javax.swing.JLabel();
         capcomGamesWon = new javax.swing.JLabel();
+        nintendoGamesWon = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         nintendoArena = new javax.swing.JTextArea();
         jScrollPane11 = new javax.swing.JScrollPane();
@@ -220,11 +228,11 @@ public class Proyecto2GUI extends javax.swing.JFrame {
         vsText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         vsText.setText("VS");
 
-        nintendoGamesWon.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        nintendoGamesWon.setText("Juegos Ganados por Steet Fighter:");
-
         capcomGamesWon.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        capcomGamesWon.setText("Juegos Ganados por Zelda: ");
+        capcomGamesWon.setText("Juegos Ganados por Steet Fighter: 0");
+
+        nintendoGamesWon.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        nintendoGamesWon.setText("Juegos Ganados por Zelda: 0 ");
 
         nintendoArena.setColumns(20);
         nintendoArena.setLineWrap(true);
@@ -240,19 +248,20 @@ public class Proyecto2GUI extends javax.swing.JFrame {
         arenaPanel.setLayout(arenaPanelLayout);
         arenaPanelLayout.setHorizontalGroup(
             arenaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(arenaPanelLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(capcomGamesWon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(nintendoGamesWon)
-                .addGap(54, 54, 54))
-            .addGroup(arenaPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, arenaPanelLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(vsText)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(arenaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nintendoGamesWon))
+                .addGroup(arenaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(arenaPanelLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(vsText)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(arenaPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(capcomGamesWon)))
                 .addGap(21, 21, 21))
         );
         arenaPanelLayout.setVerticalGroup(
@@ -267,11 +276,11 @@ public class Proyecto2GUI extends javax.swing.JFrame {
                     .addGroup(arenaPanelLayout.createSequentialGroup()
                         .addGap(65, 65, 65)
                         .addComponent(vsText, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(15, 15, 15)
-                .addGroup(arenaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nintendoGamesWon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(capcomGamesWon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(arenaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(capcomGamesWon)
+                    .addComponent(nintendoGamesWon))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         capcomText.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
