@@ -58,3 +58,123 @@ Strength: 75
 Agility: 80
 Abilities: Zora Aquatic Prowess
 
+Ruto
+HP: 95
+Strength: 70
+Agility: 85
+Abilities: Water Manipulation, Zora Royal Command
+
+Tingle
+HP: 80
+Strength: 60
+Agility: 75
+Abilities: Map Making, Balloon Flight
+
+Saria
+HP: 85
+Strength: 75
+Agility: 80
+Abilities: Forest Magic, Kokiri Bow Mastery
+
+Nabooru
+HP: 100
+Strength: 85
+Agility: 90
+Abilities: Gerudo Martial Arts, Sandstorm Control
+
+Fi
+HP: 110
+Strength: 95
+Agility: 85
+Abilities: Goddess Sword Techniques, Analytical Mind
+
+King Rhoam
+HP: 105
+Strength: 80
+Agility: 70
+Abilities: Royal Swordsmanship, Leadership Skills
+
+Purah
+HP: 75
+Strength: 55
+Agility: 65
+Abilities: Ancient Technology Expertise, Sheikah Stealth
+
+Yunobo
+HP: 90
+Strength: 85
+Agility: 60
+Abilities: Goron Strength, Rock Defense
+
+Teba
+HP: 95
+Strength: 75
+Agility: 90
+Abilities: Rito Flight Mastery, Precision Archery
+
+Hestu
+HP: 80
+Strength: 60
+Agility: 70
+Abilities: Korok Dance, Inventory Expansion Magic
+
+Agitha
+HP: 85
+Strength: 65
+Agility: 75
+Abilities: Insect Companions, Bug Magic
+
+Kass
+HP: 90
+Strength: 70
+Agility: 80
+Abilities: Rito Bard, Ancient Song Knowledge
+
+Malo
+HP: 75
+Strength: 50
+Agility: 60
+Abilities: Shopkeeping, Economic Acumen
+
+Din
+HP: 115
+Strength: 90
+Agility: 80
+Abilities: Goddess of Power, Fire Mastery
+
+Nayru
+HP: 110
+Strength: 80
+Agility: 85
+Abilities: Goddess of Wisdom, Water Mastery
+
+Farore
+HP: 105
+Strength: 75
+Agility: 90
+Abilities: Goddess of Courage, Wind Mastery
+
+Ravio
+HP: 85
+Strength: 65
+Agility: 75
+Abilities: Rental Equipment, Merchant Skills
+
+Onox
+HP: 120
+Strength: 95
+Agility: 70
+Abilities: General of Darkness, Power of Destruction
+
+Veran
+HP: 100
+Strength: 85
+Agility: 75
+Abilities: Sorceress of Shadows, Time Manipulation
+
+Koume and Kotake
+HP: 110
+Strength: 90
+Agility: 80
+Abilities: Twin Witches, Fire and Ice Magic
+-----

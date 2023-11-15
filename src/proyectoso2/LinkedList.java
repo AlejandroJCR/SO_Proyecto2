@@ -46,7 +46,22 @@ public class LinkedList<T> {
         return null;
     }
     
-    public int size(){
-        return size;
+    public void delete(T key){
+        if(head == null)
+            return;
+        if(head.data == key){
+            head = head.next;
+            size--;
+            return;
+         }
+        Node current = head;
+        while(current.next != null){
+            if(current.next.data == key){
+                current.next = current.next.next;
+                size--;
+                return;
+            }
+            current = current.next;
+        }
     }
 }
