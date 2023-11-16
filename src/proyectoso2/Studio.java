@@ -4,11 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-
 public class Studio {
     String name;
     int winners;
-    Queue<Character> p1, p2, p3, reinforcement, characters;
+    Queue<Character> p1, p2, p3, reinforcement;
+    LinkedList<Character> characters;
     Proyecto2GUI GUI;
     
     public Studio(String name, Proyecto2GUI GUI){
@@ -18,7 +18,7 @@ public class Studio {
         p2 = new Queue<>();
         p3 = new Queue<>();
         reinforcement = new Queue<>();
-        characters = new Queue<>();
+        characters = new LinkedList<>();
         loadCharacters();
     }
     
@@ -29,7 +29,7 @@ public class Studio {
            File myObj = new File(filename);
            Scanner myReader = new Scanner(myObj);
            
-           for(int i=0; i < 10; i++){
+           for(int i=0; i < 30; i++){
                 String line = myReader.nextLine();
                 String nameC = line;
                 line = myReader.nextLine();
@@ -41,12 +41,17 @@ public class Studio {
                 line = myReader.nextLine();
                 String abilities = line.split(": ")[1];
                 line = myReader.nextLine();
+                Character newCharacter = new Character(GUI.getPID(), nameC, hp, strength, agility, abilities);
                 
-                Character newCharacter = new Character(nameC, hp, strength, agility, abilities);
-                switch(newCharacter.qualityAttrs){
-                    case 0 -> p3.enqueue(newCharacter);
-                    case 1, 2 -> p2.enqueue(newCharacter);
-                    case 3 -> p1.enqueue(newCharacter);                     
+                if(i < 10){
+                    switch(newCharacter.qualityAttrs){
+                        case 0 -> p3.enqueue(newCharacter);
+                        case 1, 2 -> p2.enqueue(newCharacter);
+                        case 3 -> p1.enqueue(newCharacter);                     
+                    }
+                
+                }  else{
+                    characters.append(newCharacter);
                 }
            }
         } catch (FileNotFoundException e) {
@@ -64,11 +69,38 @@ public class Studio {
     }
     
     public void addNewCharacterToQueue(){
-        Character c = characters.dequeue();
-        switch(c.qualityAttrs){
-            case 0 -> p3.enqueue(c);
-            case 1, 2 -> p2.enqueue(c);
-            case 3 -> p1.enqueue(c);                     
+        if(characters.size > 0){
+            Character c = characters.get(0);
+            characters.delete(c);
+            switch(c.qualityAttrs){
+                case 0 -> p3.enqueue(c);
+                case 1, 2 -> p2.enqueue(c);
+                case 3 -> p1.enqueue(c);                     
+            }
+        }
+    }
+    
+    public void checkReinforcement(){
+        if(!reinforcement.isEmpty()){
+            Character c = reinforcement.dequeue();
+            int random = (int)(Math.random() * 100);
+            if(random <= 40){
+                p1.enqueue(c);
+                if(name.equals("Nintendo")){
+                    GUI.updateP1QueueS1();
+                    GUI.updateRefQueueS1();
+                }else{
+                    GUI.updateP1QueueS2();
+                    GUI.updateRefQueueS2();
+                }
+            }else{
+                reinforcement.enqueue(c);
+                if(name.equals("Nintendo")){
+                    GUI.updateRefQueueS1();
+                }else{
+                    GUI.updateRefQueueS2();
+                }
+            }
         }
     }
     
@@ -88,8 +120,6 @@ public class Studio {
                     GUI.updateP1QueueS2();
                     GUI.updateP2QueueS2();
                 }
-
-                System.out.println("a primera prioridad " + c.name);
             }
             node = node.next;
         }
@@ -109,8 +139,6 @@ public class Studio {
                     GUI.updateP2QueueS2();
                     GUI.updateP3QueueS2();
                 }
-                    
-                System.out.println("a segunda prioridad " + c.name);
             }
             node = node.next;
         }

@@ -3,8 +3,6 @@ package proyectoso2;
 public class IA extends Thread{
     BattleArena arena;
     int velocity;
-    enum Result {WINNER, TIE, NULL}
-    enum Status {WAITING, PROCESSING, ANNOUNCING}
     
     public IA(BattleArena arena, int velocity) {
         this.arena = arena;
@@ -27,21 +25,20 @@ public class IA extends Thread{
             aux = fighting;
             fighting = getHit;
             getHit = aux;
-            System.out.println("es turno de: " + fighting.name);
         } 
         
         arena.winners.append(fighting);
         if(fighting.name.equals(f1.name)){
-            System.out.println("gano: " + f1.name);
             arena.studio1.winners++;
             arena.GUI.updateGamesWonS1(); 
+            arena.GUI.updateS1Winners(f1.name + " (PID: " + f1.PID + ")");
         }else{
-            System.out.println("gano: " + f2.name);
             arena.studio2.winners++;
             arena.GUI.updateGamesWonS2();
+            arena.GUI.updateS2Winners(f2.name + " (PID: " + f2.PID + ")");
         }
         
-        System.out.println("WINNER");
+        arena.GUI.updateResult("Ganó " + fighting.name);
     }
     
     public void processTie(Character fighter1, Character fighter2){
@@ -50,7 +47,7 @@ public class IA extends Thread{
         arena.studio2.addToP1(fighter2);
         arena.GUI.updateP1QueueS1();
         arena.GUI.updateP1QueueS2();
-        System.out.println("TIE");
+        arena.GUI.updateResult("Empate");
     }
     
     public void processNull(Character fighter1, Character fighter2){
@@ -59,7 +56,7 @@ public class IA extends Thread{
         arena.studio2.addToReinforcement(fighter2);
         arena.GUI.updateRefQueueS1();
         arena.GUI.updateRefQueueS2();
-        System.out.println("NULL");
+        arena.GUI.updateResult("No se realizo");
     }
     
     public void setVelocity(int velocity){
@@ -75,11 +72,10 @@ public class IA extends Thread{
                 if(fighters[0] == null || fighters[1] == null){
                     continue;
                 }
-                System.out.println("ia");
                 // Wait for result
                 arena.GUI.updateIAStatus("Decidiendo");
                 Thread.sleep(10*1000/velocity);
-                arena.GUI.updateIAStatus("Anunciando Resultado");
+                
                 // Process result
                 int random = (int)(Math.random() * 100);
                 if(random <= 40){
@@ -90,6 +86,10 @@ public class IA extends Thread{
                     processNull(fighters[0], fighters[1]);
                 }     
                 
+                arena.GUI.updateIAStatus("Anunciando Resultado");
+                Thread.sleep(3*1000/velocity);
+                
+                arena.GUI.updateResult("Procesando");
                 arena.fighter1 = null;
                 arena.fighter2 = null;
             }   

@@ -58,3 +58,123 @@ Strength: 80
 Agility: 90
 Abilities: Hadoken, Shunpukyaku
 
+Ken Masters
+HP: 100
+Strength: 88
+Agility: 88
+Abilities: Shotokan Karate, Hadoken, Shoryuken 
+
+E. Honda
+HP: 110
+Strength: 92
+Agility: 70
+Abilities: Sumo Wrestling, Hundred Hand Slap
+
+Balrog
+HP: 105
+Strength: 95
+Agility: 80
+Abilities: Boxing, Dash Straight
+
+Fei Long
+HP: 95
+Strength: 85
+Agility: 92
+Abilities: Kung Fu, Rekka Ken
+
+T. Hawk
+HP: 115
+Strength: 90
+Agility: 75
+Abilities: Native American Wrestling, Tomahawk Buster
+
+Dudley
+HP: 100
+Strength: 85
+Agility: 90
+Abilities: Boxing, Jet Upper
+
+Akuma
+HP: 105
+Strength: 98
+Agility: 85
+Abilities: Satsui no Hado, Raging Demon
+
+C. Viper
+HP: 95
+Strength: 85
+Agility: 92
+Abilities: Special Forces Training, Burning Kick
+
+Sagat
+HP: 110
+Strength: 92
+Agility: 80
+Abilities: Muay Thai, Tiger Uppercut
+
+Juri Han
+HP: 95
+Strength: 88
+Agility: 90
+Abilities: Taekwondo, Fuhajin
+
+Remy
+HP: 90
+Strength: 80
+Agility: 85
+Abilities: Savate, Light of Virtue
+
+El Fuerte
+HP: 100
+Strength: 75
+Agility: 95
+Abilities: Lucha Libre, Quesadilla Bomb
+
+Poison
+HP: 95
+Strength: 80
+Agility: 88
+Abilities: Acrobatics, Poison Kiss
+
+Hakan
+HP: 110
+Strength: 90
+Agility: 75
+Abilities: Oil Wrestling, Oil Slide
+
+Gouken
+HP: 115
+Strength: 92
+Agility: 85
+Abilities: Shotokan Karate, Hadoken, Shin Shoryuken
+
+Seth
+HP: 105
+Strength: 95
+Agility: 90
+Abilities: Tanden Engine, Yoga Teleport
+
+Rose
+HP: 100
+Strength: 80
+Agility: 85
+Abilities: Soul Power, Reflect
+
+Decapre
+HP: 95
+Strength: 85
+Agility: 92
+Abilities: Psycho Power, Scramble
+
+Gill
+HP: 120
+Strength: 98
+Agility: 85
+Abilities: Pyrokinesis, Cryokinesis, Resurrection
+
+Necalli
+HP: 110
+Strength: 95
+Agility: 90
+Abilities: Soul Consuming, The Calling
+-----

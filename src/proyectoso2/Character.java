@@ -1,7 +1,7 @@
 package proyectoso2;
         
 public class Character {
-    String PID;
+    int PID;
     int priority;
     int counter;
     
@@ -12,7 +12,8 @@ public class Character {
     int nAbilities;
     String abilities;
     
-    public Character(String name, int hitPoints, int stregth, int agility, String abilities){
+    public Character(int PID, String name, int hitPoints, int stregth, int agility, String abilities){
+        this.PID = PID;
         this.name = name;
         this.hitPoints = hitPoints;
         this.strength = stregth;
