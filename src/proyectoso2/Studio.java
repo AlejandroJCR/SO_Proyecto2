@@ -47,7 +47,7 @@ public class Studio {
                     switch(newCharacter.qualityAttrs){
                         case 0 -> p3.enqueue(newCharacter);
                         case 1, 2 -> p2.enqueue(newCharacter);
-                        case 3 -> p1.enqueue(newCharacter);                     
+                        case 3, 4 -> p1.enqueue(newCharacter);                     
                     }
                 
                 }  else{
@@ -75,7 +75,7 @@ public class Studio {
             switch(c.qualityAttrs){
                 case 0 -> p3.enqueue(c);
                 case 1, 2 -> p2.enqueue(c);
-                case 3 -> p1.enqueue(c);                     
+                case 3, 4 -> p1.enqueue(c);                     
             }
         }
     }
