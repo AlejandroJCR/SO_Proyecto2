@@ -74,7 +74,7 @@ public class IA extends Thread{
                 }
                 // Wait for result
                 arena.GUI.updateIAStatus("Decidiendo");
-                Thread.sleep(10*1000/velocity);
+                Thread.sleep(10*1000/(velocity));
                 
                 // Process result
                 int random = (int)(Math.random() * 100);
@@ -87,7 +87,7 @@ public class IA extends Thread{
                 }     
                 
                 arena.GUI.updateIAStatus("Anunciando Resultado");
-                Thread.sleep(3*1000/velocity);
+                Thread.sleep(3*1000/(velocity));
                 
                 arena.GUI.updateResult("Procesando");
                 arena.fighter1 = null;

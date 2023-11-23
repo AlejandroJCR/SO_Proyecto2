@@ -50,9 +50,9 @@ public class Character {
         checkQuality(40); // Agility
         
         switch(qualityAttrs){
-            case 0 -> priority = 3;
-            case 1, 2 -> priority = 2;
-            case 3 -> priority = 1;                     
+            case 0, 1 -> priority = 3;
+            case 2 -> priority = 2;
+            case 3, 4 -> priority = 1;                     
         }
     }
 }

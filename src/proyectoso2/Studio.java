@@ -45,8 +45,8 @@ public class Studio {
                 
                 if(i < 10){
                     switch(newCharacter.qualityAttrs){
-                        case 0 -> p3.enqueue(newCharacter);
-                        case 1, 2 -> p2.enqueue(newCharacter);
+                        case 0, 1 -> p3.enqueue(newCharacter);
+                        case 2 -> p2.enqueue(newCharacter);
                         case 3, 4 -> p1.enqueue(newCharacter);                     
                     }
                 
@@ -73,8 +73,8 @@ public class Studio {
             Character c = characters.get(0);
             characters.delete(c);
             switch(c.qualityAttrs){
-                case 0 -> p3.enqueue(c);
-                case 1, 2 -> p2.enqueue(c);
+                case 0, 1 -> p3.enqueue(c);
+                case 2 -> p2.enqueue(c);
                 case 3, 4 -> p1.enqueue(c);                     
             }
         }
