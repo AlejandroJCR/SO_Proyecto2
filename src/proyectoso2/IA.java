@@ -27,8 +27,8 @@ public class IA extends Thread{
             getHit = aux;
         } 
         
-        arena.winners.append(fighting);
-        if(fighting.name.equals(f1.name)){
+        arena.winners.append(getHit);
+        if(getHit.name.equals(f1.name)){
             arena.studio1.winners++;
             arena.GUI.updateGamesWonS1(); 
             arena.GUI.updateS1Winners(f1.name + " (PID: " + f1.PID + ")");
@@ -38,7 +38,7 @@ public class IA extends Thread{
             arena.GUI.updateS2Winners(f2.name + " (PID: " + f2.PID + ")");
         }
         
-        arena.GUI.updateResult("Ganó " + fighting.name);
+        arena.GUI.updateResult("Ganó " + getHit.name);
     }
     
     public void processTie(Character fighter1, Character fighter2){
